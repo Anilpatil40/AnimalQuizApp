@@ -9,4 +9,20 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="button_one_text">Animal 1</string>
+    <string name="question_text">This is question %1$d out of %2$d</string>
+    <string name="key_number_of_guesses">SETTING_NUMBER_OF_GUESSES</string>
+    <string name="number_of_guesses_title">Number Of Guesses</string>
+    <string name="number_of_guesses_summary">show 2, 4 or 6 guess options</string>
+    <string name="key_types_of_animals">KEY_TYPES_OF_ANIMALS</string>
+    <string name="types_of_animals_text">Types Of Animals</string>
+    <string name="types_of_animals_summary">choose types of animals</string>
+    <string name="key_background_color">KEY_BACKGROUND_COLOR</string>
+    <string name="background_color_title">Background Color</string>
+    <string name="background_color_summary">choose background color</string>
+    <string name="default_background_color">White</string>
+    <string name="key_font">KEY_FONT</string>
+    <string name="font_title">Fonts</string>
+    <string name="font_summary">choose font</string>
+    <string name="default_font">Allura</string>
 </resources>

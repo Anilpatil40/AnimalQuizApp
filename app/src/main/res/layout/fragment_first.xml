@@ -4,16 +4,133 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="@dimen/padding_root_view"
     android:orientation="vertical"
     tools:context=".FirstFragment">
 
     <LinearLayout
+        android:id="@+id/first_row_buttons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        
+        <com.github.nikartm.button.FitButton
+            android:id="@+id/button_1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:layout_margin="@dimen/button_margin"
+            android:layout_weight="1"
+            android:gravity="center"
+            app:fb_borderColor="@color/button_color"
+            app:fb_borderWidth="@dimen/border_width"
+            app:fb_cornerRadius="@dimen/button_radius"
+            app:fb_rippleColor="@color/button_color"
+            app:fb_text="@string/button_one_text"
+            app:fb_textColor="@color/button_color" />
+
+        <com.github.nikartm.button.FitButton
+            android:id="@+id/button_2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:layout_margin="@dimen/button_margin"
+            android:layout_weight="1"
+            android:gravity="center"
+            app:fb_borderColor="@color/button_color"
+            app:fb_borderWidth="@dimen/border_width"
+            app:fb_cornerRadius="@dimen/button_radius"
+            app:fb_rippleColor="@color/button_color"
+            app:fb_text="@string/button_one_text"
+            app:fb_textColor="@color/button_color" />
 
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/second_row_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.github.nikartm.button.FitButton
+            android:id="@+id/button_3"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:layout_margin="@dimen/button_margin"
+            android:layout_weight="1"
+            android:gravity="center"
+            app:fb_borderColor="@color/button_color"
+            app:fb_borderWidth="@dimen/border_width"
+            app:fb_cornerRadius="@dimen/button_radius"
+            app:fb_rippleColor="@color/button_color"
+            app:fb_text="@string/button_one_text"
+            app:fb_textColor="@color/button_color" />
+
+        <com.github.nikartm.button.FitButton
+            android:id="@+id/button_4"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:layout_margin="@dimen/button_margin"
+            android:layout_weight="1"
+            android:gravity="center"
+            app:fb_borderColor="@color/button_color"
+            app:fb_borderWidth="@dimen/border_width"
+            app:fb_cornerRadius="@dimen/button_radius"
+            app:fb_rippleColor="@color/button_color"
+            app:fb_text="@string/button_one_text"
+            app:fb_textColor="@color/button_color" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/third_row_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.github.nikartm.button.FitButton
+            android:id="@+id/button_5"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:layout_margin="@dimen/button_margin"
+            android:layout_weight="1"
+            android:gravity="center"
+            app:fb_borderColor="@color/button_color"
+            app:fb_borderWidth="@dimen/border_width"
+            app:fb_cornerRadius="@dimen/button_radius"
+            app:fb_rippleColor="@color/button_color"
+            app:fb_text="@string/button_one_text"
+            app:fb_textColor="@color/button_color" />
+
+        <com.github.nikartm.button.FitButton
+            android:id="@+id/button_6"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:layout_margin="@dimen/button_margin"
+            android:layout_weight="1"
+            android:gravity="center"
+            app:fb_borderColor="@color/button_color"
+            app:fb_borderWidth="@dimen/border_width"
+            app:fb_cornerRadius="@dimen/button_radius"
+            app:fb_rippleColor="@color/button_color"
+            app:fb_text="@string/button_one_text"
+            app:fb_textColor="@color/button_color" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/question_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_top_for_all"
+        android:text="@string/question_text"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+    <ImageView
+        android:id="@+id/animal_image"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/margin_top_for_all"
+        android:layout_weight="1"
+        android:scaleType="fitCenter"/>
 
 </LinearLayout>
