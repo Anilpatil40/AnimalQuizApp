@@ -223,7 +223,7 @@ public class FirstFragment extends Fragment {
             params.width = 0;
             fitButton.setLayoutParams(params);
             fitButton.setTag(animalsOnButton[i]);
-            fitButton.setText(animalsOnButton[i]);
+            fitButton.setText(animalsOnButton[i].replace("_"," "));
             fitButton.setTextTypeface(currentTypeface);
             fitButton.setOnClickListener(onFitButtonClickListener);
             buttonGrid.addView(fitButton);
