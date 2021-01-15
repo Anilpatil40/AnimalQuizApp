@@ -5,6 +5,7 @@
         <item>4</item>
         <item>6</item>
     </string-array>
+
     <string-array name="type_of_animals">
         <item>Wild Animals</item>
         <item>Tame Animals</item>
@@ -13,6 +14,7 @@
         <item>wild_animals</item>
         <item>tame_animals</item>
     </string-array>
+
     <string-array name="color_names">
         <item>White</item>
         <item>Black</item>
@@ -21,19 +23,22 @@
         <item>Blue</item>
         <item>Yellow</item>
     </string-array>
+
     <string-array name="color_values" >
-        <item>@color/white</item>
-        <item>@color/black</item>
-        <item>@color/green</item>
-        <item>@color/read</item>
-        <item>@color/blue</item>
-        <item>@color/yellow</item>
+        <item>#ffffff</item>
+        <item>#000000</item>
+        <item>#1E6300</item>
+        <item>#9F0202</item>
+        <item>#072180</item>
+        <item>#986101</item>
     </string-array>
+
     <string-array name="font_names">
         <item>Allura</item>
         <item>Amatic</item>
         <item>Pacifico</item>
     </string-array>
+
     <string-array name="font_entries" >
         <item>allura.otf</item>
         <item>amatic.ttf</item>

@@ -7,9 +7,11 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="button_color">#575757</color>
+    <color name="button_color">#000000</color>
     <color name="green">#268D00</color>
     <color name="read">#AD0C00</color>
     <color name="blue">#0E5A8D</color>
     <color name="yellow">#B69F0C</color>
+    <color name="wrong_answer_color">#CF655D</color>
+    <color name="right_answer_color">#83CE7D</color>
 </resources>

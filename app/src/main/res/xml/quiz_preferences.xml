@@ -25,7 +25,7 @@
         android:title="@string/background_color_title"
         android:summary="@string/background_color_summary"
         android:persistent="true"
-        android:defaultValue="@string/default_background_color"/>
+        android:defaultValue="#ffffff"/>
 
     <ListPreference
         android:entries="@array/font_names"
