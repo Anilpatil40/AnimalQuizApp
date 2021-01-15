@@ -1,5 +1,6 @@
 package com.swayam.animalquizapp;
 
+import android.animation.Animator;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -11,6 +12,7 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -67,8 +69,6 @@ public class FirstFragment extends Fragment {
     TextView textQuestionNumber;
     @BindView(R.id.animal_image)
     ImageView imgAnimal;
-    @BindView(R.id.textAnswer)
-    TextView textAnswer;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
@@ -113,9 +113,6 @@ public class FirstFragment extends Fragment {
         correctAnimalAnswer = remainingAnimalList.get(secureRandom.nextInt(remainingAnimalList.size()));
         Log.i(TAG, "nextQuestion: "+correctAnimalAnswer);
         remainingAnimalList.remove(correctAnimalAnswer);
-
-        //setting answer text to null
-        textAnswer.setText("");
 
         //updating buttons
         updateNumberOfButtons();
@@ -190,7 +187,6 @@ public class FirstFragment extends Fragment {
         Log.i(TAG, "updateFontForAll: "+choseFont);
         currentTypeface = Typeface.createFromAsset(getContext().getAssets(),"fonts/"+choseFont);
 
-        textAnswer.setTypeface(currentTypeface);
         textQuestionNumber.setTypeface(currentTypeface);
 
         for (int i=0;i<buttonGrid.getChildCount();i++){
@@ -257,17 +253,11 @@ public class FirstFragment extends Fragment {
                 numberOfRightAnswers++;
                 ((FitButton)v).setBackgroundColor(getContext().getResources().getColor(R.color.right_answer_color));
                 disableAllButtons();
-                textAnswer.setText("Correct");
-                textAnswer.setTextColor(getContext().getResources().getColor(R.color.green));
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
                         try {
-                            if (currentQuestionNumber == maxNumberOfQuestion-1){
-                                showCompleteDialogBox();
-                                return;
-                            }
-                            nextQuestion();
+                            animateOnNextQuestion(true);
                         }catch (Exception e){
                             Log.i(TAG, "run: "+e.toString());
                         }
@@ -280,8 +270,6 @@ public class FirstFragment extends Fragment {
                 v.setClickable(false);
                 numberOfWrongAnswers++;
                 imgAnimal.startAnimation(wrongAnswerAnimation);
-                textAnswer.setText("Wrong");
-                textAnswer.setTextColor(getContext().getResources().getColor(R.color.read));
             }
         }
     };
@@ -305,5 +293,60 @@ public class FirstFragment extends Fragment {
             Toast.makeText(getContext(), getString(R.string.setting_changed_text), Toast.LENGTH_SHORT).show();
         }
     };
+
+    //animate layout on next question
+    private void animateOnNextQuestion(boolean value){
+        if (currentQuestionNumber == maxNumberOfQuestion-1) {
+            showCompleteDialogBox();
+            return;
+        }
+
+        int xTopLeft = 0;
+        int yTopLeft = 0;
+
+        int xBottomRight = animalQuizLinearLayout.getLeft() + animalQuizLinearLayout.getRight();
+        int yBottomRight = animalQuizLinearLayout.getTop() + animalQuizLinearLayout.getBottom();
+
+        int radius = Math.max(animalQuizLinearLayout.getWidth(),animalQuizLinearLayout.getHeight());
+
+        Animator animator;
+
+        if (value) {
+
+            animator = ViewAnimationUtils.createCircularReveal(animalQuizLinearLayout, xBottomRight, yBottomRight, radius, 0);
+
+            animator.addListener(new Animator.AnimatorListener() {
+                @Override
+                public void onAnimationStart(Animator animation) {
+
+                }
+
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    animateOnNextQuestion(false);
+                }
+
+                @Override
+                public void onAnimationCancel(Animator animation) {
+
+                }
+
+                @Override
+                public void onAnimationRepeat(Animator animation) {
+
+                }
+            });
+        }else {
+            animator = ViewAnimationUtils.createCircularReveal(animalQuizLinearLayout, xTopLeft, yTopLeft, 0, radius);
+            try {
+                nextQuestion();
+            } catch (Exception exception) {
+                Log.i(TAG, "onAnimationEnd: " + exception.toString());
+            }
+        }
+
+        animator.setDuration(700);
+        animator.start();
+    }
 
 }
